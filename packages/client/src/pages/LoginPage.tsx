@@ -23,7 +23,7 @@ export type LoginInput = TypeOf<typeof loginSchema>;
 const LoginPage = () => {
   const navigate = useNavigate();
 
-  const { isLoading, mutate: loginUser } = trpc.useMutation(['auth.login'], {
+  const { isLoading, mutate } = trpc.useMutation(['auth.login'], {
     onSuccess() {
       toast('Logged in successfully', {
         type: 'success',
@@ -53,12 +53,10 @@ const LoginPage = () => {
     if (isSubmitSuccessful) {
       reset();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSubmitSuccessful]);
 
   const onSubmitHandler: SubmitHandler<LoginInput> = (values) => {
-    // ? Executing the loginUser Mutation
-    loginUser(values);
+    mutate(values);
   };
 
   return (
@@ -77,12 +75,6 @@ const LoginPage = () => {
           >
             <FormInput label="Email" name="email" type="email" />
             <FormInput label="Password" name="password" type="password" />
-
-            <div className="text-right">
-              <Link to="#" className="">
-                Forgot Password?
-              </Link>
-            </div>
             <LoadingButton loading={isLoading} textColor="text-ct-blue-600">
               Login
             </LoadingButton>

@@ -87,20 +87,20 @@ export const loginHandler = async ({
     }
 
     // Create the Access and refresh Tokens
-    const { access_token, refresh_token } = await signTokens(user);
+    // const { access_token, refresh_token } = await signTokens(user);
 
     // Send Access Token in Cookie
-    ctx.res.cookie('access_token', access_token, accessTokenCookieOptions);
-    ctx.res.cookie('refresh_token', refresh_token, refreshTokenCookieOptions);
-    ctx.res.cookie('logged_in', true, {
-      ...accessTokenCookieOptions,
-      httpOnly: false,
-    });
+    // ctx.res.cookie('access_token', access_token, accessTokenCookieOptions);
+    // ctx.res.cookie('refresh_token', refresh_token, refreshTokenCookieOptions);
+    // ctx.res.cookie('logged_in', true, {
+    //   ...accessTokenCookieOptions,
+    //   httpOnly: false,
+    // });
 
     // Send Access Token
     return {
       status: 'success',
-      access_token,
+      // access_token,
     };
   } catch (err) {
     throw err;
