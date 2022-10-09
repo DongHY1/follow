@@ -1,5 +1,5 @@
 import { TRPCError } from '@trpc/server';
-import { findUniqueUser } from '../services/user.service';
+import { findUniqueUser } from '../services/user.services';
 import { Request, Response } from 'express';
 import redisClient from '../utils/connectRedis';
 import { verifyJwt } from '../utils/jwt';
