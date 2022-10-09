@@ -9,21 +9,28 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.8",
     "@trpc/client": "^9.27.4",
     "@trpc/react": "^9.27.4",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
     "react": "^18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.37.0",
     "react-query": "3",
     "react-router-dom": "^6.4.2",
+    "react-toastify": "^9.0.8",
     "server": "1.0.0",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "tailwind-merge": "^1.6.1",
+    "zod": "^3.19.1",
+    "zustand": "^4.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
+    "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^2.1.0",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.17",
