@@ -6,14 +6,18 @@ import { getFetch } from '@trpc/client';
 import { loggerLink } from '@trpc/client/links/loggerLink';
 import { httpBatchLink } from '@trpc/client/links/httpBatchLink';
 import { trpc } from './utils/trpc';
+import LoginRegisterForm from './components/LoginRegisterForm';
 
 function AppContent() {
-  const { data:res } = trpc.useQuery(['users.list']);
+  const { data: res } = trpc.useQuery(['users.list']);
+  const [isLogin] = useState<boolean>(true);
   return (
-    <div className="container mx-auto bg-ct-dark-200 rounded-xl shadow border p-8 m-10">
-      <p className="text-3xl text-gray-700 font-bold mb-5">Welcome!</p>
-      <p className="text-ct-blue-600 text-lg">{JSON.stringify(res?.data.userlist)}</p>
-    </div>
+    <main className="container mx-auto flex min-h-screen flex-col items-center justify-center p-4">
+      <h1 className="text-5xl font-extrabold leading-normal text-gray-700 md:text-[5rem]">
+        Follow <span className="text-purple-300">App</span>
+      </h1>
+      <LoginRegisterForm isLogin={false} />
+    </main>
   );
 }
 

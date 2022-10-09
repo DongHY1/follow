@@ -11,10 +11,14 @@
   "dependencies": {
     "@trpc/client": "^9.27.4",
     "@trpc/react": "^9.27.4",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-query": "3",
-    "server": "1.0.0"
+    "react-router-dom": "^6.4.2",
+    "server": "1.0.0",
+    "sort-by": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",
