@@ -6,14 +6,13 @@ import { getFetch } from '@trpc/client';
 import { loggerLink } from '@trpc/client/links/loggerLink';
 import { httpBatchLink } from '@trpc/client/links/httpBatchLink';
 import { trpc } from './utils/trpc';
-import { useUserListQuery } from './hooks/query';
 
 function AppContent() {
-  const { data } = useUserListQuery();
+  const { data:res } = trpc.useQuery(['users.list']);
   return (
     <div className="container mx-auto bg-ct-dark-200 rounded-xl shadow border p-8 m-10">
       <p className="text-3xl text-gray-700 font-bold mb-5">Welcome!</p>
-      <p className="text-ct-blue-600 text-lg">{JSON.stringify(data)}</p>
+      <p className="text-ct-blue-600 text-lg">{JSON.stringify(res?.data.userlist)}</p>
     </div>
   );
 }
