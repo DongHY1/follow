@@ -5,6 +5,7 @@ import { signJwt } from '../utils/jwt';
 import { prisma } from '../utils/prisma';
 
 export const createUser = async (input: Prisma.UserCreateInput) => {
+  debugger;
   return (await prisma.user.create({
     data: input,
   })) as User;

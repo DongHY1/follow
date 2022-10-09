@@ -38,13 +38,13 @@ export const registerHandler = async ({
 }: {
   input: CreateUserInput;
 }) => {
+  debugger;
   try {
     const hashedPassword = await bcrypt.hash(input.password, 12);
     const user = await createUser({
       email: input.email.toLowerCase(),
       name: input.name,
       password: hashedPassword,
-      photo: input.photo,
     });
 
     return {
