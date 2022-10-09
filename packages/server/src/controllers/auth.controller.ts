@@ -2,10 +2,15 @@ import { TRPCError } from '@trpc/server';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime';
 import bcrypt from 'bcryptjs';
 import { CookieOptions } from 'express';
-import { Context } from '../app';
+import { Context } from '../utils/router';
 import customConfig from '../config';
 import { CreateUserInput, LoginUserInput } from '../schema/user.schema';
-import { createUser, findUser,findUniqueUser,signTokens } from '../services/user.services';
+import {
+  createUser,
+  findUser,
+  findUniqueUser,
+  signTokens,
+} from '../services/user.services';
 import redisClient from '../utils/connectRedis';
 import { signJwt, verifyJwt } from '../utils/jwt';
 // [...] Cookie Options
@@ -169,7 +174,7 @@ const logout = ({ ctx }: { ctx: Context }) => {
 
 export const logoutHandler = async ({ ctx }: { ctx: Context }) => {
   try {
-    const user = ctx.user
+    const user = ctx.user;
     await redisClient.del(user?.id as string);
     logout({ ctx });
     return { status: 'success' };

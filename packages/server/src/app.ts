@@ -8,7 +8,7 @@ import connectDB from './utils/prisma';
 import cookieParser from 'cookie-parser';
 import { appRouter } from './router';
 import { createExpressMiddleware } from '@trpc/server/adapters/express';
-import { createContext, createRouter } from './utils/router';
+import { createContext } from './utils/router';
 process.on('uncaughtException', (err) => {
   console.log(err);
 });
