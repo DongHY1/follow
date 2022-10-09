@@ -28,14 +28,9 @@ export const findUniqueUser = async (
     select,
   })) as User;
 };
-export const updateUser = async (
-  where: Partial<Prisma.UserWhereUniqueInput>,
-  data: Prisma.UserUpdateInput,
-  select?: Prisma.UserSelect
-) => {
-  return (await prisma.user.update({ where, data, select })) as User;
+export const findAllUser = async (select?: Prisma.UserSelect) => {
+  return (await prisma.user.findMany({ select })) as User[];
 };
-
 export const signTokens = async (user: Prisma.UserCreateInput) => {
   // 1. Create Session
   redisClient.set(`${user.id}`, JSON.stringify(user), {
